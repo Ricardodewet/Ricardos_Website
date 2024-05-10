@@ -1,6 +1,7 @@
 body{
     font-family: "Spline Sans", sans-serif;
     margin: 20px;
+    background-color: aliceblue;
 }
 
 footer{
@@ -22,14 +23,33 @@ main{
     padding: 20px;
 }
 
-section{
-    background-color: #f0f0f0;
+.NA_l{
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 2s;
+}
+
+.NA_r{
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 1s;
+}
+
+.section{
+    background-color: #f7eeeece;
     padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     padding-bottom: 10px;
-    width: 90%;
+    width: 90svw;
     box-shadow: 0px 0px 10px rgba(0,0,0,0.1); 
+    align-items: center;
+    margin-left: 10svw;
+    margin-right: 10svw;
+}
+.show{    
+    opacity: 1;
+    transform: translateX(0);
 }
 
 h2{
@@ -50,6 +70,10 @@ ul{
 img{
     max-width: auto; 
     height: 100%; 
+}
+
+#buttons{
+    background-color:aliceblue;
 }
 
 button{
@@ -119,6 +143,7 @@ itemprop p{
     background-color: #ffffff00;
     padding: 1rem;
     margin: 0;
+    z-index: +10;
 }
 
 .nav-list {
@@ -205,17 +230,13 @@ transform: rotate(-45deg);
     grid-template-rows: 2;
     display: grid;
     grid-template-columns: auto auto auto;
+    gap: 2svw;
 }
 
 .areas-of-interest h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
-
-.interest-item {
-    margin-bottom: 1rem;
-}
-
 
 .scroll_ribbon{
     display: inline-flex;
@@ -224,7 +245,7 @@ transform: rotate(-45deg);
 }
 
 .scroll_item{
-    background-color: #ddd;
+    background-color: #dbcfcfce;
     box-sizing: border-box;
     width: 300px;
     margin: 0 1rem;
@@ -251,10 +272,10 @@ transform: rotate(-45deg);
 
 @keyframes move {
     0% {
-        transform: translateX(0);
+        transform: translateX(20svw);
     }
     100% {
-        transform: translateX(-200%);
+        transform: translateX(-20svw);
     }
 }
 
@@ -271,6 +292,7 @@ transform: rotate(-45deg);
     width: 70%;
     height: 70%;
     overflow: auto;
+    scrollbar-width: none;
 }
 
 .modal_header{
@@ -286,7 +308,7 @@ transform: rotate(-45deg);
     font-weight: bold;
 }
 
-.modal_header .close_button{
+.close_button{
     cursor: pointer;
     border: none;
     outline: none;
@@ -294,15 +316,21 @@ transform: rotate(-45deg);
     font-size: 1.25rem;
     font-weight: bold;  
     color: black;  
-    right: 0;
+    right: 0 !important;
+    top: 0 !important;
+    padding: 0;
+    margin: 0;
+    width: fit-content;
 }
 
 .modal_body{
-    padding: 10px 15px;    
+    padding: 10px 15px;   
     display: grid;    
-    grid-template-columns: auto auto auto;
-    gap: 10px;
-    justify-content: space-between;
+    grid-template-columns: auto auto ;
+    grid-template-rows: auto;
+    gap: 10%;
+    overflow-block:auto;
+    
 }
 
 #overlay{
@@ -326,7 +354,12 @@ transform: rotate(-45deg);
     pointer-events: all;
 } 
 
-
+#portfolio{
+    background-color: aliceblue !important;
+    padding: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
 
 
 

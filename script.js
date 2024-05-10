@@ -107,7 +107,25 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.classList.remove('active')
         stopAnimation.forEach(div =>{div.classList.remove('deactivate')})
     }
-   
+    
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry)=>{
+            if (entry.isIntersecting){
+                entry.target.classList.add('show')
+            }else{
+                entry.target.classList.remove('show')
+            }
+        })
+    })
+
+
+    const hiddenElements_l = document.querySelectorAll('.NA_l')
+    hiddenElements_l.forEach((element) => observer.observe(element))
+
+    const hiddenElements_r = document.querySelectorAll('.NA_r')
+    hiddenElements_r.forEach((element) => observer.observe(element))
+
 });
 
 
@@ -115,10 +133,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-// This code is just an example and may not be necessary for your use case
-document.querySelectorAll('.interest-item h3').forEach((h3) => {
-    h3.addEventListener('click', () => {
-      h3.nextElementSibling.classList.toggle('expanded');
-    });
-  });
