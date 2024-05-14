@@ -1,21 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ricardo De Wet's Website</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav class="nav">
-    <button class="burger-btn" aria-label="Toggle navigation">
-      <span class="burger-icon"></span>
+    <button class="burger_btn" aria-label="Toggle navigation">
+      <span class="burger_icon"></span>
+      <span class="burger_icon"></span>
+      <span class="burger_icon"></span>
     </button>
-    <ul class="nav-list">
+    <ul class="nav_list">
+      <li><a href="#Interested_Areas">Interests</a></li>
       <li><a href="#Summary">Summary</a></li>
       <li><a href="#Education">Education</a></li>
       <li><a href="#Skills">Skills</a></li>
       <li><a href="#Experience">Experience</a></li>
-      <li><a href="#PI">Personal Information</a></li>
+      <li><a href="#PI">Personal Info</a></li>
+      <li><a href="#Portfolio">Portfolio</a></li>
     </ul>
   </nav>
 
@@ -32,10 +39,10 @@
       </itemprop>        
     </div>
 
-    <div class="container">    
-      
-      <section  class="section ">
-        <h2 id="Interested-Areas">Areas of Interests</h2>
+    <div class="container">          
+      <span id="Interested_Areas" class="link"></span>
+      <section class="section ">
+        <h2>Areas of Interests</h2>
         <div class="areas-of-interest">
           <div class="interest-item">          
             <h3>Data Science</h3>
@@ -64,26 +71,31 @@
         </div>
       </section>
       
+      <span id="Summary" class="link"></span>
       <section class="section NA_r">
-        <h2 id="Summary">Summary</h2>
-        <p>As a driven and detail-oriented BComp student, I'm excited to bring my skills and enthusiasm to the IT industry, with my focus mainly on data. I have a strong passion for learning and a great eagerness to enter the workforce, I'm confident in my ability to make a meaningful contribution.</p>
+        <h2>Summary</h2>
+        <p>As a driven and detail-oriented BComp student, I'm excited to bring my skills and enthusiasm to the IT industry, with my focus mainly on data. I have a strong passion for learning and a great eagerness to enter the workforce, I'm confident in my ability to make meaningful contributions within the industry and to coninue to improve my ability and skills with each project that I work on.</p>
         </section>
+
+        <span id="Education" class="link"></span>
         <section class="section NA_l">
-        <h2 id="Education">Education</h2>
+        <h2>Education</h2>
         <ul>
             <li>NSC 2021, Overkruin High School, Pretoria</li>
             <li>Bachelor's Degree in Computer Sciences, Belgium Campus ITversity, Pretoria Campus (Expected completion: 2025)</li>
             <li>uSchool of Ministry, Unite180, Unite City Campus Pretoria (Expected completion: 2024)</li>            
         </ul>
       </section>
+
+      <span id="Skills" class="link"></span>
       <section class="section NA_r">
-        <h2 id="Skills">Skills</h2>
-        <div class="skills-container">
+        <h2>Skills</h2>
+        <div class="skills_container">
           <div class="flex">
               <ul>
                   <li>Microsoft Office 360 and Applications</li>
                   <li>Teamwork</li>
-                  <li>Learner</li>
+                  <li>Fast Learner</li>
                   <li>Time Management</li>
                   <li>Problem Solving</li>
                   <li>Adaptablity</li>
@@ -107,10 +119,13 @@
           </div>
         </div>
       </section>
+      
+      <span id="Experience" class="link"></span>
       <section class="section NA_l">
-        <h2 id="Experience">Work Experience</h2>
+        <h2>Work Experience</h2>
         <ul>
           <li>Employee, Sellaro Consultancy, Pretoria (Sept 2023 - Present)</li>
+          <li>Korean Embassy Event Worker, Centurion (KFFF - 29 Oct 2023) & Johannesburg (KCC - 10 May 2024)</li>
           <li>Part-Time Electrician Assistant, Tech 80, Roodepoort (Dec 2022 - Feb 2023)</li>
           <li>Farm Labourer, Jan De Wet, Brits (Dec 2021 - Jan 2022)</li>
           <li>Knife Maker Assistant, Herucus Blomerus, Pretoria (Dec 2020 - Sept 2021, Feb 2022)</li>
@@ -118,8 +133,10 @@
           <li>Volunteer, Wetnose Animal Rescue Centre, Bronkhorstspruit (Jan 2016 - Dec 2016)</li>
         </ul>
       </section>
+      
+      <span id="PI" class="link"></span>
       <section class="section NA_r">
-        <h2 id="PI">Personal Information</h2>
+        <h2>Personal Information</h2>
         <ul>
           <li><u>Date of Birth:</u> 28 August 2003</li>
           <li><u>Health:</u> Excellent</li>
@@ -128,56 +145,59 @@
         </ul>
       </section>
 
+      <span id="Portfolio" class="link"></span>
       <section id="portfolio">
-        <div class="scroll_ribbon" id="ribbon">
-          <div data-modal-target="#modal" class="scroll_item" id="first_object" data-index="0" >
-              <img src="https://via.placeholder.com/150" alt="Placeholder image">
-              <h2>Heading 7</h2>
-              <p>Description 1</p>
+        <div class="scroll_ribbon" id="ribbon"> 
+          <div class="scroller__inner">
+            <div data-modal-target="#modal" class="scroll_item" data-index="0" >
+                <img src="Other_Sources/Port_Prj_1.jpeg" alt="Project 1">
+                <h2>100 Days of Code</h2>
+                <p>I'm currently in the midst of an exciting challenge, where I'm building 100 projects in 100 days to master Python and expand my skills in data science, automation, web development, and more. I'm making great progress, and I'm confident that I'll complete this ambitious project in the near future, unlocking new abilities and expertise along the way.</p>
+            </div>
+            <div data-modal-target="#modal" class="scroll_item " data-index="1">
+                <img src="Other_Sources/Port_Prj_2.png" alt="Project 2">
+                <h2>Groq PA</h2>
+                  <p>In this project, I successfully integrated speech-to-text and text-to-speech modules into a web application, leveraging APIs to enable seamless communication between my device and the cloud. I utilized the Deepgram API for both speech-to-text and text-to-speech functions, and Groq's own API to send questions to and receive answers from their cloud-based infrastructure.<br/>
+                  
+                  <br/>Throughout this project, I demonstrated some skill in running virtual environments on my device and effectively calling APIs to facilitate communication between my device and the cloud. The project involved a diverse range of programming languages, including Python, JavaScript, and HTML, with CSS to enhance the user interface.<br/>
+                  
+                  <br/>I gained hands-on experience with integrating speech-to-text and text-to-speech modules into a web application, using the APIs to enable seamless communication between devices and the cloud, running virtual environments on my device, and calling APIs to facilitate communication between devices and the cloud. This project was an exciting and engaging experience that allowed me to develop a range of skills, from programming languages to API integration. I am proud of the progress I made and look forward to applying these skills in future projects.
+                  </p>
+            </div>
+            <div data-modal-target="#modal" class="scroll_item" data-index="2">
+                <img src="https://via.placeholder.com/150" alt="Project 3">
+                <h2>Heading 2</h2>
+                <p>Description 3</p>
+            </div>
+            <div data-modal-target="#modal" class="scroll_item" data-index="3">
+                <img src="https://via.placeholder.com/150" alt="Project 4">
+                <h2>Heading 4</h2>
+                <p>Description 1</p>
+            </div>
+            <div data-modal-target="#modal" class="scroll_item" data-index="4">
+                <img src="https://via.placeholder.com/150" alt="Project 5">
+                <h2>Heading 5</h2>
+                <p>Description 1</p>
+            </div>
+            <div data-modal-target="#modal" class="scroll_item" data-index="5">
+                <img src="https://via.placeholder.com/150" alt="Project 6">
+                <h2>Heading 6</h2>
+                <p>Description 1</p>
+            </div>
           </div>
-          <div data-modal-target="#modal" class="scroll_item " data-index="1">
-              <img src="https://via.placeholder.com/150" alt="Placeholder image">
-              <h2>Heading 1</h2>
-              <p>Description 1</p>
-          </div>
-          <div data-modal-target="#modal" class="scroll_item" data-index="2">
-              <img src="https://via.placeholder.com/150" alt="Placeholder image">
-              <h2>Heading 2</h2>
-              <p>Description 3</p>
-          </div>
-          <div data-modal-target="#modal" class="scroll_item" data-index="3">
-              <img src="https://via.placeholder.com/150" alt="Placeholder image">
-              <h2>Heading 4</h2>
-              <p>Description 1</p>
-          </div>
-          <div data-modal-target="#modal" class="scroll_item" data-index="4">
-              <img src="https://via.placeholder.com/150" alt="Placeholder image">
-              <h2>Heading 5</h2>
-              <p>Description 1</p>
-          </div>
-          <div data-modal-target="#modal" class="scroll_item" data-index="5">
-              <img src="https://via.placeholder.com/150" alt="Placeholder image">
-              <h2>Heading 6</h2>
-              <p>Description 1</p>
-          </div>
-      </div>
-      <div class="modal" id="modal">
+        </div>
           <div class="modal_header">
-              <div class="title">Projects</div>
-              <button data-close-button class="close_button">&times;</button>
+            <h1 class="title">Projects</h1>
+            <button data-close-button class="close_button">&times;</button>
           </div>
-          <container id="mod">
-            <div class="modal_body"></div>
-          </container>
-          
-      </div>
-      <div id="overlay"></div>
+          <div class="modal" id="modal"></div>  
+        </div>    
+        <div id="overlay"></div>
       </section>
-
       <div id="buttons">
-        <button id="download-cv">Download My CV</button>
-        <button id="download-Transcript">Transcript</button>
-        <button id="download-por">Proof of Registration</button>
+        <button class="press" id="download-cv">Download My CV</button>
+        <button class="press" id="download-Transcript">Transcript</button>
+        <button class="press" id="download-por">Proof of Registration</button>
       </div>
     </div>
   </main>
