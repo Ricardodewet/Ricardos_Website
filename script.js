@@ -1,9 +1,19 @@
 
-const burgerBtn = document.querySelector('.burger-btn');
-const navList = document.querySelector('.nav-list');
+const burgerBtn = document.querySelector('.burger_btn');
+const burgetIcon = document.querySelector('.burger_icon');
+const navList = document.querySelector('.nav_list');
+let isRotated = false;
 
 burgerBtn.addEventListener('click', () => {
-    navList.classList.toggle('show');
+    navList.classList.toggle('shown');
+    burgetIcon.classList.toggle('shown');
+    burgerBtn.style.transform = 'rotate(90deg)';
+    isRotated = !isRotated;
+    if (isRotated) {
+        burgerBtn.style.transform = 'rotate(90deg)';
+    } else {
+        burgerBtn.style.transform = 'rotate(0deg)';
+    }
 });
 
 // Load password 
@@ -15,7 +25,7 @@ fetch('Other_Sources/t.txt')
 
     // Add event listeners
     document.getElementById('download-cv').addEventListener('click', () => {
-        promptForPassword(storedPassword, 'CV', 'Other_Sources/CV.pdf', 'CV - Ricardo De Wet');
+        promptForPassword(storedPassword, 'CV', 'Other_Sources/CV - Ricardo De Wet.pdf', 'CV - Ricardo De Wet');
     });
 
     document.getElementById('download-Transcript').addEventListener('click', () => {
@@ -41,92 +51,130 @@ function promptForPassword(storedPassword, fileName, fileUrl, downloadName) {
     }
 }
 
+// Creating extra scroll ribbon values
+const scrollers = document.querySelectorAll(".scroll_ribbon");
+
+scrollers.forEach((scroller) => {
+    const scrollerInner = scroller.querySelector(".scroller__inner");
+    const scrollerContent = Array.from(scrollerInner.children);
+
+    scrollerContent.forEach(item => {
+        const duplicatedItem = item.cloneNode(true);
+        duplicatedItem.setAttribute("aria-hidden", true);
+        scrollerInner.appendChild(duplicatedItem);
+    });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
-    const modal_body = document.querySelectorAll('.modal_body')[0];
+    const modal = document.querySelectorAll('.modal')[0];
     const items = document.querySelectorAll('.scroll_item');
     const index_list = []
+    
+    function getSide(index_list, img, h2, p) {
+        if (index_list.length % 2 == 0) {
+            return `
+                <img src="${img.src}" alt="Project Image">
+                <div>
+                    <h2>${h2.innerText}</h2>
+                    <p>${p.innerText}</p>
+                </div>
+            `;
+        } else {
+            return `
+                <div>
+                    <h2>${h2.innerText}</h2>
+                    <p>${p.innerText}</p>
+                </div>
+                <img src="${img.src}" alt="Project Image">
+            `;
+        }
+    }
 
     function loadForm() {
         items.forEach((item) => {
             const itemContent = document.createElement('div');
-            itemContent.className = 'form_item';
+            itemContent.className = 'modal_body';
             const itemImg = item.querySelector('img');
             const itemH2 = item.querySelector('h2');
             const itemP = item.querySelector('p');
-            itemContent.innerHTML = `
-                <img src="${itemImg.src}" alt="Placeholder image">
-                <div>
-                    <h2>${itemH2.innerText}</h2>
-                    <p>${itemP.innerText}</p>
-                </div>
-            `;
-            if (index_list.includes(itemH2)== false) {
-                index_list.push(itemH2)
-                modal_body.appendChild(itemContent);
+
+            itemContent.innerHTML = getSide(index_list, itemImg, itemH2, itemP);
+
+            if (index_list.includes(itemH2.innerText)== false) {
+                index_list.push(itemH2.innerText);
+                console.log(itemH2)
+                modal.appendChild(itemContent);
             }
         });
+        console.log(index_list)
     }
+    console.log(index_list)
 
-    const openModalButton = document.querySelectorAll('[data-modal-target]')
-    const closeModalButton = document.querySelectorAll('[data-close-button]')
-    const overlay = document.getElementById('overlay')
-    const stopAnimation = document.querySelectorAll('.scroll_item')
+    const openModalButton = document.querySelectorAll('[data-modal-target]');
+    const closeModalButton = document.querySelectorAll('[data-close-button]');
+    const overlay = document.getElementById('overlay');
+    const stopAnimation = document.querySelectorAll('.scroll_item');
+    const modalHeader = document.querySelector('.modal_header');
+    const mainModel = document.querySelector('.modal')
     
     openModalButton.forEach(div =>{
         div.addEventListener('click', () =>{
-            const modal = document.querySelector(div.dataset.modalTarget)
-            openModal(modal)
-            loadForm()
-        })
-    })
+            const modal = document.querySelector(div.dataset.modalTarget);
+            openModal(modal);
+            loadForm();
+        });
+    });
     
     closeModalButton.forEach(div =>{
         div.addEventListener('click', () =>{
-            const modal = div.closest('.modal')
-            closeModal(modal)
-        })
-    })
+            const modal = div.closest('.modal_header');
+            closeModal(modal);
+        });
+    });
     
     overlay.addEventListener('click', () =>{
-        const modals = document.querySelectorAll('.modal.active')
+        const modals = document.querySelectorAll('.modal_header');
         modals.forEach(modal=>{
-            closeModal(modal)
-        })
-    })
+            closeModal(modal);
+        });
+    });
     
     function openModal(modal){
         if (modal == null) return
-        modal.classList.add('active')
-        overlay.classList.add('active')
-        stopAnimation.forEach(div =>{div.classList.add('deactivate')})       
+        modal.classList.add('active');
+        overlay.classList.add('active');
+        modalHeader.classList.add('active');
+        stopAnimation.forEach(div =>{div.classList.add('deactivate')})    ;   
     }
     
     function closeModal(modal){
         if (modal == null) return
-        modal.classList.remove('active')
-        overlay.classList.remove('active')
-        stopAnimation.forEach(div =>{div.classList.remove('deactivate')})
+        modal.classList.remove('active');
+        overlay.classList.remove('active');
+        mainModel.classList.remove('active');
+        stopAnimation.forEach(div =>{div.classList.remove('deactivate')});
     }
     
-
+//  Adding Scroll Animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry)=>{
             if (entry.isIntersecting){
-                entry.target.classList.add('show')
+                entry.target.classList.add('show');
             }else{
-                entry.target.classList.remove('show')
+                entry.target.classList.remove('show');
             }
-        })
-    })
+        });
+    });
 
+    const hiddenElements_l = document.querySelectorAll('.NA_l');
+    hiddenElements_l.forEach((element) => observer.observe(element));
 
-    const hiddenElements_l = document.querySelectorAll('.NA_l')
-    hiddenElements_l.forEach((element) => observer.observe(element))
-
-    const hiddenElements_r = document.querySelectorAll('.NA_r')
-    hiddenElements_r.forEach((element) => observer.observe(element))
+    const hiddenElements_r = document.querySelectorAll('.NA_r');
+    hiddenElements_r.forEach((element) => observer.observe(element));
 
 });
+
+
 
 
 
